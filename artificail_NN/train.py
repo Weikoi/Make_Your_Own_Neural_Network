@@ -1,5 +1,4 @@
-from NeuralNetwork import neuralNetwork as nn
-import matplotlib.pyplot as plt
+from artificail_NN.NeuralNetwork import neuralNetwork as nn
 import numpy as np
 
 inputnodes = 784
@@ -9,7 +8,7 @@ lr = 0.2
 
 net = nn(inputnodes, hiddennodes, outputnodes, lr)
 
-with open("./data/mnist_train.csv", 'r') as f:
+with open("../data/mnist_train.csv", 'r') as f:
     data_list = f.readlines()
 
     epochs = 5
@@ -24,7 +23,7 @@ with open("./data/mnist_train.csv", 'r') as f:
             net.train(scaled_input, targets)
         print("已经训练第%d世代\n" % (e+1))
 
-with open("./data/mnist_test.csv", 'r') as file:
+with open("../data/mnist_test.csv", 'r') as file:
     test_data_list = file.readlines()
     # scorecard for how well the network performs, initially empty
     scorecard = []
