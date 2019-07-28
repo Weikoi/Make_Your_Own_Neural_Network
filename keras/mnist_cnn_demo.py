@@ -7,6 +7,7 @@ from keras import layers
 from keras import models
 from keras.datasets import mnist
 from keras.utils import to_categorical
+import matplotlib.pyplot as plt
 
 """
 添加卷积层
@@ -28,7 +29,6 @@ model.add(layers.Dense(10, activation='softmax'))
 
 print(model.summary())
 
-
 """
 数据集处理
 """
@@ -49,7 +49,9 @@ test_labels = to_categorical(test_labels)
 model.compile(optimizer='rmsprop',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
-model.fit(train_images, train_labels, epochs=5, batch_size=64)
+history = model.fit(train_images, train_labels, epochs=5, batch_size=64)
+
+
 
 
 """

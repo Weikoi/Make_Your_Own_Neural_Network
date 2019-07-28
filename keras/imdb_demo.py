@@ -7,6 +7,8 @@ from keras import metrics
 from keras import models
 from keras import layers
 
+import matplotlib.pyplot as plt
+
 (train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=10000)
 
 word_index = imdb.get_word_index()
@@ -48,3 +50,16 @@ history = model.fit(partial_x_train,
                     epochs=20,
                     batch_size=512,
                     validation_data=(x_val, y_val))
+
+# acc = history.history['acc']  # 获取训练集准确性数据
+# val_acc = history.history['val_acc']  # 获取验证集准确性数据
+# loss = history.history['loss']  # 获取训练集错误值数据
+# val_loss = history.history['val_loss']  # 获取验证集错误值数据
+# epochs = range(1, len(acc) + 1)
+# plt.plot(epochs, acc, 'bo', label='Trainning acc')  # 以epochs为横坐标，以训练集准确性为纵坐标
+# plt.plot(epochs, val_acc, 'b', label='Vaildation acc')  # 以epochs为横坐标，以验证集准确性为纵坐标
+# plt.legend()  # 绘制图例，即标明图中的线段代表何种含义
+#
+# plt.figure()  # 创建一个新的图表
+# plt.plot(epochs, loss, 'bo', label='Trainning loss')
+# plt.plot(epochs, val_loss, 'b', label='Vaildation loss')
